@@ -7,6 +7,7 @@ function App() {
     <>
       <Header />
       <Main />
+      <h1>Hello</h1>
       <Footer />
     </>
   );
