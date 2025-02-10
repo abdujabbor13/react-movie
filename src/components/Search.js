@@ -1,80 +1,212 @@
-import React from 'react';
-export default class Search extends React.Component{
 
-  state = {
-    search: 'panda',
-    type: 'all'
-  }
 
-  handleKey = (e) => {
-    if(e.key === 'Enter'){
-      this.props.searchMovies(this.state.search, this.state.type)
-    }
-  }
 
-  handleFilter = (e) => {
-    this.setState(() => ({type: e.target.dataset.type}), () => {
-      this.props.searchMovies(this.state.search, this.state.type)
-    })
-  }
 
-  render() {
-    return (
-      <div>
-        <div className="row">
-          <div className="col s12">
-            <div className="input-field">
-              <input
-                placeholder="search"
-                type="search"
-                className="validate"
-                value={this.state.search}
-                onChange={(e) => this.setState({search: e.target.value})}
-                onKeyDown={this.handleKey}
-              />
-              <button
-                className="btn search-btn"
-                onClick={() => this.props.searchMovies(this.state.search, this.state.type)}>
-                search movies
-              </button>
-            </div>
-            <div>
-              <label>
-                <input
-                  className="with-gap"
-                  name="type" type="radio"
-                  data-type="all"
-                  onChange={this.handleFilter}
-                  checked={this.state.type === 'all'}
-                  />
-                  <span>All</span>
-              </label>
 
-              <label>
-                <input
-                  className="with-gap"
-                  name="type" type="radio"
-                  data-type="movie"
-                  onChange={this.handleFilter}
-                  checked={this.state.type === 'movie'}
-                  />
-                  <span>movies only</span>
-              </label>
 
-              <label>
-                <input
-                  className="with-gap"
-                  name="type" type="radio"
-                  data-type="series"
-                  onChange={this.handleFilter}
-                  checked={this.state.type === 'series'}
-                  />
-                  <span>series only</span>
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, {useState} from 'react';
+// export default function Search({searchMovies}) {
+//   const [search, setSearch] = useState('panda')
+//   const [type, setType] = useState('all')
+
+//   const handleKey = (e) => {
+//     if(e.key === 'Enter'){
+//       searchMovies(search, type)
+//     }
+//   }
+
+//   const handleFilter = (e) => {
+//     setType(() => (e.target.dataset.type), () => {
+//       searchMovies(search, e.target.dataset.type)
+//     })
+//   }
+
+//     return (
+//       <div>
+//         <div className="row">
+//           <div className="col s12">
+//             <div className="input-field">
+//               <input
+//                 placeholder="search"
+//                 type="search"
+//                 className="validate"
+//                 value={search}
+//                 onChange={(e) => setSearch(e.target.value)}
+//                 onKeyDown={handleKey}
+//               />
+//               <button
+//                 className="btn search-btn"
+//                 onClick={() => searchMovies(search, type)}>
+//                 search movies
+//               </button>
+//             </div>
+//             <div>
+//               <label>
+//                 <input
+//                   className="with-gap"
+//                   name="type" type="radio"
+//                   data-type="all"
+//                   onChange={handleFilter}
+//                   checked={type === 'all'}
+//                   />
+//                   <span>All</span>
+//               </label>
+
+//               <label>
+//                 <input
+//                   className="with-gap"
+//                   name="type" type="radio"
+//                   data-type="movie"
+//                   onChange={handleFilter}
+//                   checked={type === 'movie'}
+//                   />
+//                   <span>movies only</span>
+//               </label>
+
+//               <label>
+//                 <input
+//                   className="with-gap"
+//                   name="type" type="radio"
+//                   data-type="series"
+//                   onChange={handleFilter}
+//                   checked={type === 'series'}
+//                   />
+//                   <span>series only</span>
+//               </label>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, {useState} from 'react';
+
+//   export default function Search({searchMovies}) {
+//     const [search, setSearch] = useState('panda')
+//     const [type, setType] = useState('all')
+
+
+//   const handleKey = (e) => {
+//     if(e.key === 'Enter'){
+//       searchMovies(search, type)
+//     }
+//   }
+
+//   const handleFilter = (e) => {
+//     setType(e.target.dataset.type)
+//     searchMovies(search, e.target.dataset.type)
+//   }
+
+//   return (
+//     <div>
+//       <div className="row">
+//         <div className="col s12">
+//           <div className="input-field">
+//             <input
+//               placeholder="search"
+//               type="search"
+//               className="validate"
+//               value={search}
+//               onChange={(e) => setSearch(e.target.value)}
+//               onKeyDown={handleKey}
+//             />
+//             <button
+//               className="btn search-btn"
+//               onClick={() => searchMovies(search, type)}>
+//               search movies
+//             </button>
+//           </div>
+//           <div>
+//             <label>
+//               <input
+//                 className="with-gap"
+//                 name="type" type="radio"
+//                 data-type="all"
+//                 onChange={handleFilter}
+//                 checked={type === 'all'}
+//                 />
+//                 <span>All</span>
+//             </label>
+
+//             <label>
+//               <input
+//                 className="with-gap"
+//                 name="type" type="radio"
+//                 data-type="movie"
+//                 onChange={handleFilter}
+//                 checked={type === 'movie'}
+//                 />
+//                 <span>movies only</span>
+//             </label>
+
+//             <label>
+//               <input
+//                 className="with-gap"
+//                 name="type" type="radio"
+//                 data-type="series"
+//                 onChange={handleFilter}
+//                 checked={type === 'series'}
+//                 />
+//                 <span>series only</span>
+//             </label>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
